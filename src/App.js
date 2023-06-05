@@ -1,7 +1,6 @@
 import React, { createContext, useState } from "react";
 import "./App.css";
-// import Navbar from "./components/Navbar";
-import BooksList from "./components/BooksList";
+import Navbar from "./components/Navbar";
 import Login from "./components/Login";
 
 const booksContext = createContext();
@@ -27,7 +26,7 @@ function App() {
         setReadingList,
       }}
     >
-      <div className="App">{user ? <BooksList /> : <Login />}</div>
+      <div className="App">{user ? <Navbar /> : <Login />}</div>
     </booksContext.Provider>
   );
 }
