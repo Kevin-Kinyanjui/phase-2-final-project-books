@@ -1,10 +1,13 @@
 import React, { createContext, useState } from "react";
 import "./App.css";
-import Navbar from "./components/Navbar";
+// import Navbar from "./components/Navbar";
+import BooksList from "./components/BooksList";
+import Login from "./components/Login";
 
 const booksContext = createContext();
 
 function App() {
+  const [user, setUser] = useState(null);
   const [books, setBooks] = useState("works");
   const [favoritebooks, setFavoriteBooks] = useState(null);
   const [recommendations, setRecommendations] = useState(null);
@@ -12,6 +15,8 @@ function App() {
   return (
     <booksContext.Provider
       value={{
+        user,
+        setUser,
         books,
         setBooks,
         favoritebooks,
@@ -22,9 +27,7 @@ function App() {
         setReadingList,
       }}
     >
-      <div className="App">
-        <Navbar />
-      </div>
+      <div className="App">{user ? <BooksList /> : <Login />}</div>
     </booksContext.Provider>
   );
 }
