@@ -22,31 +22,33 @@ function Navbar() {
   }
 
   return (
-    <div>
-      {" "}
+    <>
       <Router>
-        <div>
-          <nav>
-            <ul>
-              <li>
+        <div className="navbar">
+          <div className="links">
+            <nav>
+              <ul>
                 <NavLink to="/">Books</NavLink>
-              </li>
-              <li>
-                <NavLink to="favoritebooks">FavoriteBooks</NavLink>
-              </li>
-            </ul>
-          </nav>
 
-          <Routes>
-            <Route exact path="/" element={<BooksList />} />
-            <Route path="favoritebooks" element={<FavoriteBooks />} />
-          </Routes>
+                <NavLink to="favoritebooks">FavoriteBooks</NavLink>
+              </ul>
+            </nav>
+          </div>
+
+          <div className="user">
+            <p>{user?.displayName}</p>
+            {user && (
+              <img src={user?.photoURL} alt="user" width="40" height="40" />
+            )}
+          </div>
+          <button onClick={logOut}>logout</button>
         </div>
+        <Routes>
+          <Route exact path="/" element={<BooksList />} />
+          <Route path="favoritebooks" element={<FavoriteBooks />} />
+        </Routes>
       </Router>
-      <button onClick={logOut}>logout</button>
-      <h6>{user?.displayName}</h6>
-      {user && <img src={user?.photoURL} alt="user" />}
-    </div>
+    </>
   );
 }
 
