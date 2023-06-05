@@ -1,0 +1,18 @@
+import { initializeApp } from "firebase/app";
+import { getAuth, GoogleAuthProvider } from "firebase/auth";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAFOpf36HtJihkeuv2rJ5Ae7J9yc1BmqWQ",
+  authDomain: "chatroom-7e466.firebaseapp.com",
+  projectId: "chatroom-7e466",
+  storageBucket: "chatroom-7e466.appspot.com",
+  messagingSenderId: "581156377002",
+  appId: "1:581156377002:web:9e138373307fcea0fa9bd3",
+  measurementId: "G-1PGQ48BW03",
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const provider = new GoogleAuthProvider();
+
+export { auth, provider };
