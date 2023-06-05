@@ -1,5 +1,7 @@
 import React, { useContext } from "react";
 import { booksContext } from "../App";
+import { auth } from "../config/firebaseConfig";
+import { signOut } from "firebase/auth";
 import {
   BrowserRouter as Router,
   Routes,
@@ -11,7 +13,14 @@ import BooksList from "./BooksList";
 import FavoriteBooks from "./FavoriteBooks";
 
 function Navbar() {
-  let { user } = useContext(booksContext);
+  let { user, setUser } = useContext(booksContext);
+
+  function logOut() {
+    signOut(auth).then(() => {
+      setUser(null);
+    });
+  }
+
   return (
     <div>
       {" "}
@@ -34,6 +43,7 @@ function Navbar() {
           </Routes>
         </div>
       </Router>
+      <button onClick={logOut}>logout</button>
       <h6>{user?.displayName}</h6>
       {user && <img src={user?.photoURL} alt="user" />}
     </div>
