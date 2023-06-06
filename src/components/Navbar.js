@@ -11,6 +11,9 @@ import {
 
 import BooksList from "./BooksList";
 import FavoriteBooks from "./FavoriteBooks";
+import Recommendations from "./Recommendations";
+import ReadingList from "./ReadingList";
+import Comments from "./Comments";
 
 function Navbar() {
   let { user, setUser } = useContext(booksContext);
@@ -29,8 +32,10 @@ function Navbar() {
             <nav>
               <ul>
                 <NavLink to="/">Books</NavLink>
-
                 <NavLink to="favoritebooks">FavoriteBooks</NavLink>
+                <NavLink to="recommendations">Recommendations</NavLink>
+                <NavLink to="readinglist">ReadingList</NavLink>
+                <NavLink to="comments">Comments</NavLink>
               </ul>
             </nav>
           </div>
@@ -46,6 +51,9 @@ function Navbar() {
         <Routes>
           <Route exact path="/" element={<BooksList />} />
           <Route path="favoritebooks" element={<FavoriteBooks />} />
+          <Route path="recommendations" element={<Recommendations />} />
+          <Route path="readinglist" element={<ReadingList />} />
+          <Route path="comments" element={<Comments />} />
         </Routes>
       </Router>
     </>
