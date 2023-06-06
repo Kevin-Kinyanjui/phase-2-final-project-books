@@ -2,12 +2,22 @@ import React, { useContext } from "react";
 import { booksContext } from "../App";
 
 function FavoriteBooks() {
-  let { books, setBooks } = useContext(booksContext);
+  const { favoritebooks } = useContext(booksContext);
 
-  setBooks("hi");
   return (
     <div>
-      <h1>FavoriteBooks {books}</h1>
+      <h1>Favorite Books</h1>
+      {favoritebooks && favoritebooks.length > 0 ? (
+        favoritebooks.map((book) => (
+          <div key={book.id}>
+            <h3>{book.title}</h3>
+            <p>{book.author}</p>
+            {/* Display other book details */}
+          </div>
+        ))
+      ) : (
+        <p>No favorite books yet.</p>
+      )}
     </div>
   );
 }
