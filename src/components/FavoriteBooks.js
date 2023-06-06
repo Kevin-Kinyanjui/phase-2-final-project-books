@@ -1,8 +1,21 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { booksContext } from "../App";
 
 function FavoriteBooks() {
-  const { favoritebooks } = useContext(booksContext);
+  const { favoritebooks, setFavoriteBooks } = useContext(booksContext);
+
+  useEffect(() => {
+    
+    fetch("https://api.example.com/books")
+      .then((response) => response.json())
+      .then((data) => {
+        
+        setFavoriteBooks(data);
+      })
+      .catch((error) => {
+        console.log("Error fetching data:", error);
+      });
+  }, [setFavoriteBooks]);
 
   return (
     <div>
@@ -16,7 +29,7 @@ function FavoriteBooks() {
           </div>
         ))
       ) : (
-        <p>No favorite books yet.</p>
+        <p>Loading favorite books...</p>
       )}
     </div>
   );
