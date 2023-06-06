@@ -1,9 +1,22 @@
-import React, { useState, useContext } from "react";
-import { addDoc, collection } from "firebase/firestore";
+import React, { useState, useContext, useEffect } from "react";
+import { addDoc, collection, getDocs } from "firebase/firestore";
 import { db } from "../config/firebaseConfig";
 import { booksContext } from "../App";
 
 function Comments() {
+  const [comments, setComments] = useState(null);
+
+  useEffect(() => {
+    const commentsRef = collection(db, "comments");
+    function getComments() {
+      getDocs(commentsRef).then((data) => {
+        setComments(data.docs.map((doc) => ({ ...doc.data() })));
+      });
+    }
+    getComments();
+  }, []);
+
+  console.log(comments);
   return (
     <div>
       {" "}
