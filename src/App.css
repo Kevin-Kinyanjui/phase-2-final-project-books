@@ -117,3 +117,78 @@
 .button:hover {
   background-color: #45a049;
 }
+
+.comments {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.comments h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.comments ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.comments li {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.comments li p {
+  margin: 0;
+}
+
+.comments li span {
+  font-weight: bold;
+}
+
+.comments form {
+  margin-top: 20px;
+  border: 1px solid #ccc;
+  padding: 20px;
+}
+
+.comments form h3 {
+  font-size: 20px;
+  margin-top: 0;
+}
+
+.comments form div {
+  margin-bottom: 10px;
+}
+
+.comments form label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.comments form input[type="text"],
+.comments form input[type="email"],
+.comments form textarea {
+  width: 100%;
+  padding: 5px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.comments form button[type="submit"] {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.comments form button[type="submit"]:hover {
+  background-color: #0062cc;
+}

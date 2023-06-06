@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
+import { booksContext } from "../App";
 
 //creating function for book details( in list)
 function BookDetails({ books, onItemClick }) {
+  let { books } = useContext(booksContext);
   function handleClick(bookId) {
     onItemClick(bookId);
   }
