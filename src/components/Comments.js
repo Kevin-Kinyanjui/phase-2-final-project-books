@@ -3,8 +3,6 @@ import { addDoc, collection } from "firebase/firestore";
 import { db } from "../config/firebaseConfig";
 import { booksContext } from "../App";
 
-const { user } = useContext(booksContext);
-
 function Comments() {
   return (
     <div>
@@ -15,6 +13,7 @@ function Comments() {
 }
 
 function Form() {
+  let { user } = useContext(booksContext);
   const [formData, setFormData] = useState({
     title: "",
     description: "",
