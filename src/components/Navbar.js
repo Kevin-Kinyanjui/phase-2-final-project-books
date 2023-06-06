@@ -43,7 +43,7 @@ function Navbar() {
           <div className="user">
             <p>{user?.displayName}</p>
             {user && (
-              <img src={user?.photoURL} alt="user" width="40" height="40" />
+              <img src={user?.photoURL} alt="." width="40" height="40" />
             )}
           </div>
           <button onClick={logOut}>logout</button>
