@@ -2,30 +2,34 @@ import React, { useState, useContext, useEffect } from "react";
 import { addDoc, collection, getDocs } from "firebase/firestore";
 import { db } from "../config/firebaseConfig";
 import { booksContext } from "../App";
+import CommentCard from "./CommentCard";
 
 function Comments() {
   const [comments, setComments] = useState(null);
 
+  const commentsRef = collection(db, "comments");
+
+  function getComments() {
+    getDocs(commentsRef).then((data) => {
+      setComments(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    });
+  }
+
   useEffect(() => {
-    const commentsRef = collection(db, "comments");
-    function getComments() {
-      getDocs(commentsRef).then((data) => {
-        setComments(data.docs.map((doc) => ({ ...doc.data() })));
-      });
-    }
-    getComments();
+    getComments(); // eslint-disable-next-line
   }, []);
 
-  console.log(comments);
   return (
     <div>
-      {" "}
-      <Form />
+      <Form getComments={getComments} />
+      {comments?.map((comment, index) => (
+        <CommentCard key={index} comment={comment} />
+      ))}
     </div>
   );
 }
 
-function Form() {
+function Form({ getComments }) {
   let { user } = useContext(booksContext);
   const [formData, setFormData] = useState({
     title: "",
@@ -47,6 +51,7 @@ function Form() {
         console.log(error);
       });
     setFormData({ title: "", description: "" });
+    getComments();
   }
 
   function handleChange(e) {
