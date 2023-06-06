@@ -1,70 +1,52 @@
-# Getting Started with Create React App
+# BookBuzz
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-## Available Scripts
+Welcome to BookBuzz, your ultimate destination for discovering captivating reads, connecting with fellow bookworms, and unlocking a world of literary wonders.
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- **Login with google to get started**: Start on our impressive homepage by login in with your google account to gain access to this amazing app.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Explore a Vast Library**: Immerse yourself in a vast collection of books spanning various genres, from thrilling mysteries and heartwarming romance to thought-provoking non-fiction and timeless classics.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Personalized Recommendations**: Our advanced recommendation system analyzes your reading preferences and suggests tailored book recommendations, ensuring you always find your next favorite read.
 
-### `npm test`
+- **Save Favorites**: Like a book? Simply hit the "Like" button and save it to your personal collection. Your favorite books will be persisted to the backend, allowing you to revisit and access them at any time.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Community Engagement**: Connect with fellow book enthusiasts, share your thoughts and recommendations, and participate in engaging discussions that will deepen your appreciation for literature via Comments.
 
-### `npm run build`
+- **Seamless User Experience**: Our intuitive user interface ensures a seamless and enjoyable experience, allowing you to effortlessly navigate through the app and discover your next literary adventure.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Links
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Frontend: [link here](https://phase-2-group-3-project.netlify.app/)
+- Backend: [link here](https://www.example.com/backend)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Technology Stack
 
-### `npm run eject`
+- Frontend deployed with [Netlify](https://www.netlify.com/), ensuring high availability, scalability, and a fast browsing experience for users.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Backend powered by a RESTful JSON server, providing efficient data management, seamless integration, and reliable persistence of user actions.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Contributors
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+BookBuzz has been developed by a dedicated team of contributors who are passionate about literature and technology. We extend our gratitude to:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Stella
+- Damaris
+- Samuel
+- Jeff
+- Kevin
 
-## Learn More
+## License
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+BookBuzz is licensed under the [MIT License](https://opensource.org/licenses/MIT), which allows you to freely use, modify, and distribute the project while maintaining attribution to the original authors.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+At BookBuzz, we believe in the power of books to inspire, entertain, and transform lives. Join our thriving community of book lovers, embark on literary adventures, and broaden your horizons. Whether you're a casual reader or an avid bibliophile, BookBuzz offers an immersive reading experience that will ignite your passion for literature.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+To get started with BookBuzz, please refer to this detailed documentation for usage guidelines, and API references. If you have any questions or need assistance, feel free to reach out to our talented team of contributors.
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Happy reading with BookBuzz!

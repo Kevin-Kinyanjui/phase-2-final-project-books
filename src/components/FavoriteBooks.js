@@ -3,10 +3,9 @@ import { booksContext } from "../App";
 
 function FavoriteBooks() {
   // const [favoritebooks, setFavoriteBooks] = useState(null);
-  let { books, setBooks } = useContext(booksContext);
+  let { books } = useContext(booksContext);
   console.log(books);
 
-  setBooks("hi");
   return (
     <div>
       <h1>FavoriteBooks </h1>
