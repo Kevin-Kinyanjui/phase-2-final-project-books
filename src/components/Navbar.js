@@ -33,7 +33,7 @@ function Navbar() {
                 <NavLink to="favoritebooks">Favorites</NavLink>
                 <NavLink to="Recommendations">Recommendations</NavLink>
                 <NavLink to="Active-reads">Active-reads</NavLink>
-                <NavLink to="comments">comments</NavLink>
+                <NavLink to="comments">Comments</NavLink>
                 
                 
 
@@ -52,9 +52,9 @@ function Navbar() {
         </div>
         <Routes>
           <Route exact path="/" element={<BooksList />} />
-          <Route path="favoritebooks" element={<Favorites />} />
-          <Route path="activereads" element={<Active-reads />} />
-          <Route path="comments" element={<Comments />} />
+          <Route path="favoritebooks" element={<FavoriteBooks />} />
+          {/* <Route path="activereads" element={<Active-reads />} />
+          <Route path="comments" element={<Comments />} /> */}
         </Routes>
       </Router>
     </>
