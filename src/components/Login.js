@@ -15,12 +15,12 @@ function Login() {
   return (
     <>
       <div className="loginBody">
-        <div class="container">
+        <div className="container">
           <h1 className="loginH1">Welcome to BookBuzz</h1>
           <h6 className="loginh6">
             Embark on a literary journey like never before!
           </h6>
-          <button class="button" onClick={handleClick}>
+          <button className="button" onClick={handleClick}>
             Sign in with google.
           </button>
         </div>
