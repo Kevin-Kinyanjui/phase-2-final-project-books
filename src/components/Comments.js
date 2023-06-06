@@ -28,9 +28,7 @@ function Form() {
       description: formData.description,
       username: user?.displayName,
       id: user?.uid,
-    }).then((data) => {
-      console.log(data);
-    });
+    }).then(() => {});
     setFormData({ title: "", description: "" });
   }
 
