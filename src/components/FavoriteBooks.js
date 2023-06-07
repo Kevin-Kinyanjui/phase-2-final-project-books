@@ -2,10 +2,10 @@ import React, { useContext } from "react";
 import { booksContext } from "../App";
 
 function FavoriteBooks() {
-  let { favoriteBooks } = useContext(booksContext);
+  let { favoriteBooks, setFavoriteBooks } = useContext(booksContext);
 
-  function removeLiked(book) {
-    console.log(book);
+  function removeLiked(bookID) {
+    setFavoriteBooks(favoriteBooks.filter((b) => b.id != bookID));
   }
 
   return (
@@ -18,7 +18,7 @@ function FavoriteBooks() {
             <img src={book.image_url} alt="book" width={200} height={300} />
             <div>{book.title}</div>
             <div>{book.authors}</div>
-            <button onClick={() => removeLiked(book)}>Like</button>
+            <button onClick={() => removeLiked(book.id)}>Like</button>
           </div>
         ))
       )}
