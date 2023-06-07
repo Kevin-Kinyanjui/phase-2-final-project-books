@@ -22,6 +22,7 @@ function Recommendations() {
           new Set(data.flatMap((book) => book.genres.split(", ")))
         );
         setGenres(uniqueGenres);
+        setRecommendations(data);
 
         setLoading(false);
       } catch (error) {
@@ -35,22 +36,6 @@ function Recommendations() {
   }, []);
 
   useEffect(() => {
-    const generateRecommendations = () => {
-      if (selectedGenre) {
-        const filteredBooks = recommendations.filter((book) =>
-          book.genres.includes(selectedGenre)
-        );
-        const randomRecommendations = shuffleBooks(filteredBooks).slice(0, 10);
-        setRecommendations(randomRecommendations);
-      } else {
-        const randomRecommendations = shuffleBooks(recommendations).slice(
-          0,
-          10
-        );
-        setRecommendations(randomRecommendations);
-      }
-    };
-
     generateRecommendations();
   }, [selectedGenre]);
 
@@ -68,9 +53,10 @@ function Recommendations() {
 
   const generateRecommendations = () => {
     if (selectedGenre) {
-      const filteredBooks = recommendations.filter((book) =>
-        book.genres.includes(selectedGenre)
-      );
+      const filteredBooks = recommendations.filter((book) => {
+        const genresArray = book.genres.split(", ").map((genre) => genre.trim());
+        return genresArray.includes(selectedGenre);
+      });
       const randomRecommendations = shuffleBooks(filteredBooks).slice(0, 10);
       setRecommendations(randomRecommendations);
     } else {
@@ -78,7 +64,7 @@ function Recommendations() {
       setRecommendations(randomRecommendations);
     }
   };
-  
+
   if (loading) {
     return <div>Loading recommendations...</div>;
   }
