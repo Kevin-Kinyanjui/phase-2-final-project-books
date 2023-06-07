@@ -9,7 +9,7 @@ function Recommendations() {
   return (
     <>
       <div className="homeStyle">
-        <h1>Unleash the Magic of Books!</h1>{" "}
+        <h1>Recommendations just for you!</h1>{" "}
       </div>
       <div>Recommendations</div>
     </>

@@ -8,7 +8,7 @@ function ReadingList() {
   return (
     <>
       <div className="homeStyle">
-        <h1>Unleash the Magic of Books!</h1>{" "}
+        <h1>Books you are reading.</h1>{" "}
       </div>
       <div>ReadingList</div>
     </>
