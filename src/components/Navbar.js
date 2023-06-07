@@ -28,8 +28,9 @@ function Navbar() {
           <div className="links">
             <nav>
               <ul>
-                <NavLink to="/">Home</NavLink>
 
+
+                <NavLink to="/">Home</NavLink>
                 <NavLink to="favoritebooks">Favorites</NavLink>
                 <NavLink to="Recommendations">Recommendations</NavLink>
                 <NavLink to="Active-reads">Active-reads</NavLink>
