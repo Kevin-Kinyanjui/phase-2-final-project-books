@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { booksContext } from "../App";
 import React, { useEffect } from "react";
 
+<<<<<<< HEAD
 
 const BooksList = ({ books, onBookOver }) => {
   let { books, setBooks } = useContext(booksContext);
@@ -45,5 +46,11 @@ const BooksList = ({ books, onBookOver }) => {
   );
 
   
+=======
+function BooksList() {
+  // let { books, setBooks } = useContext(booksContext);
+  return <></>;
+}
+>>>>>>> cc2c7ecd4f288dba10f6f0afb81a50da698cdfe0
 
 export default BooksList;
