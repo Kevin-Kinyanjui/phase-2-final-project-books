@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { booksContext } from "../App";
+import Book from "./Book";
 
 function BooksList() {
   const [loading, setLoading] = useState(true);
@@ -7,7 +8,7 @@ function BooksList() {
   let { books, setBooks } = useContext(booksContext);
 
   useEffect(() => {
-    fetch("https://example-data.draftbit.com/books?_limit=50")
+    fetch("https://example-data.draftbit.com/books?_limit=150")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to fetch data");
@@ -33,7 +34,13 @@ function BooksList() {
   }
 
   console.log(books);
-  return <></>;
+  return (
+    <>
+      {books.map((book) => (
+        <Book key={book.id} book={book} />
+      ))}
+    </>
+  );
 }
 
 export default BooksList;
