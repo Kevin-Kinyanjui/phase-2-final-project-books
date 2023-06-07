@@ -34,6 +34,7 @@ function Navbar() {
                 <NavLink to="Recommendations">Recommendations</NavLink>
                 <NavLink to="Active-reads">Active-reads</NavLink>
                 <NavLink to="comments">Comments</NavLink>
+                <NavLink to="Search">Search</NavLink>
                 
                 
 
@@ -53,8 +54,7 @@ function Navbar() {
         <Routes>
           <Route exact path="/" element={<BooksList />} />
           <Route path="favoritebooks" element={<FavoriteBooks />} />
-          {/* <Route path="activereads" element={<Active-reads />} />
-          <Route path="comments" element={<Comments />} /> */}
+    
         </Routes>
       </Router>
     </>
