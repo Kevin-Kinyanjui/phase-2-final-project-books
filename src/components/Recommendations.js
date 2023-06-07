@@ -4,8 +4,8 @@ function Recommendations() {
   const [recommendations, setRecommendations] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [selectedGenre, setselectedGenre] = useState("");
-  const [searchLogic, setsearchLogic] = useState("");
+  const [selectedGenre, setSelectedGenre] = useState("");
+  const [genres, setGenres] = useState([]);
 
   useEffect(() => {
     const fetchBooks = async () => {
@@ -17,8 +17,12 @@ function Recommendations() {
           throw new Error("Failed to fetch data");
         }
         const data = await response.json();
-        const randomRecommendations = shuffleBooks(data).slice(0, 10);
-        setRecommendations(randomRecommendations);
+
+        const uniqueGenres = Array.from(
+          new Set(data.flatMap((book) => book.genres.split(", ")))
+        );
+        setGenres(uniqueGenres);
+
         setLoading(false);
       } catch (error) {
         console.log("Error fetching data:", error);
@@ -30,10 +34,51 @@ function Recommendations() {
     fetchBooks();
   }, []);
 
+  useEffect(() => {
+    const generateRecommendations = () => {
+      if (selectedGenre) {
+        const filteredBooks = recommendations.filter((book) =>
+          book.genres.includes(selectedGenre)
+        );
+        const randomRecommendations = shuffleBooks(filteredBooks).slice(0, 10);
+        setRecommendations(randomRecommendations);
+      } else {
+        const randomRecommendations = shuffleBooks(recommendations).slice(
+          0,
+          10
+        );
+        setRecommendations(randomRecommendations);
+      }
+    };
+
+    generateRecommendations();
+  }, [selectedGenre]);
+
   const shuffleBooks = (array) => {
     return array.sort(() => Math.random() - 0.5);
   };
 
+  const handleGenreChange = (event) => {
+    setSelectedGenre(event.target.value);
+  };
+
+  const handleSearch = () => {
+    generateRecommendations();
+  };
+
+  const generateRecommendations = () => {
+    if (selectedGenre) {
+      const filteredBooks = recommendations.filter((book) =>
+        book.genres.includes(selectedGenre)
+      );
+      const randomRecommendations = shuffleBooks(filteredBooks).slice(0, 10);
+      setRecommendations(randomRecommendations);
+    } else {
+      const randomRecommendations = shuffleBooks(recommendations).slice(0, 10);
+      setRecommendations(randomRecommendations);
+    }
+  };
+  
   if (loading) {
     return <div>Loading recommendations...</div>;
   }
@@ -45,10 +90,32 @@ function Recommendations() {
   return (
     <div>
       <h2>Recommendations</h2>
+      <select
+        value={selectedGenre}
+        onChange={handleGenreChange}
+        className="border border-gray-300 rounded-md px-2 py-1"
+      >
+        <option value="">All Genres</option>
+        {genres.map((genre) => (
+          <option key={genre} value={genre}>
+            {genre}
+          </option>
+        ))}
+      </select>
+      <button
+        onClick={handleSearch}
+        className="bg-blue-500 text-white px-4 py-2 rounded-md ml-2"
+      >
+        Search
+      </button>
+
       {recommendations.length > 0 ? (
         <ul>
           {recommendations.map((book) => (
-            <li key={book.id}>{book.title}</li>
+            <li key={book.id}>
+              <strong>Title:</strong> {book.title}, <strong>Author:</strong>{" "}
+              {book.authors}
+            </li>
           ))}
         </ul>
       ) : (
