@@ -4,6 +4,8 @@ function Recommendations() {
   const [recommendations, setRecommendations] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [selectedGenre, setselectedGenre] = useState("");
+  const [searchLogic, setsearchLogic] = useState("");
 
   useEffect(() => {
     const fetchBooks = async () => {
