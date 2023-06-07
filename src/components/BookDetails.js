@@ -27,7 +27,9 @@ function BookDetails({ books, onItemHover }) {
                 <div class="card-body">
                 <ul>
                     {books.map((book) => (
-                      <li key={book.id} onMouseEnter={handleHover.bind(null, book.id)}>
+                      <li key={book.id} onMouseEnter={handleHover.bind(null, book.id)}
+                                        onMouseLeave={handleHover.bind(null, null)}
+                      >
                           <h2>{book.title}</h2>
                         <p>Author: {book.author}</p>
                         <p>Genre: {book.genre}</p>
