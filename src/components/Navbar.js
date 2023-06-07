@@ -31,10 +31,11 @@ function Navbar() {
           <div className="links">
             <nav>
               <ul>
-                <NavLink to="/">Books</NavLink>
-                <NavLink to="favoritebooks">FavoriteBooks</NavLink>
-                <NavLink to="recommendations">Recommendations</NavLink>
-                <NavLink to="readinglist">ReadingList</NavLink>
+                <NavLink to="/">Home</NavLink>
+
+                <NavLink to="favoritebooks">Favorites</NavLink>
+                <NavLink to="Recommendations">Recommendations</NavLink>
+                <NavLink to="readinglist">Active-reads</NavLink>
                 <NavLink to="comments">Comments</NavLink>
               </ul>
             </nav>
@@ -43,7 +44,7 @@ function Navbar() {
           <div className="user">
             <p>{user?.displayName}</p>
             {user && (
-              <img src={user?.photoURL} alt="." width="40" height="40" />
+              <img src={user?.photoURL} alt="user" width="40" height="40" />
             )}
           </div>
           <button onClick={logOut}>logout</button>
