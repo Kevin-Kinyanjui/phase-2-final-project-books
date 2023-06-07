@@ -1,5 +1,25 @@
 import React, { useEffect, useState } from "react";
 
+const fetchBooks = async () => {
+  try {
+    const response = await fetch(
+      "https://example-data.draftbit.com/books?_limit=150"
+    );
+    if (!response.ok) {
+      throw new Error("Failed to fetch data");
+    }
+    const data = await response.json();
+
+    const uniqueGenres = Array.from(
+      new Set(data.flatMap((book) => book.genres.split(", ")))
+    );
+    return { data, uniqueGenres };
+  } catch (error) {
+    console.log("Error fetching data:", error);
+    throw new Error("Failed to fetch recommendations.");
+  }
+};
+
 function Recommendations() {
   const [recommendations, setRecommendations] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -8,36 +28,18 @@ function Recommendations() {
   const [genres, setGenres] = useState([]);
 
   useEffect(() => {
-    const fetchBooks = async () => {
-      try {
-        const response = await fetch(
-          "https://example-data.draftbit.com/books?_limit=150"
-        );
-        if (!response.ok) {
-          throw new Error("Failed to fetch data");
-        }
-        const data = await response.json();
-
-        const uniqueGenres = Array.from(
-          new Set(data.flatMap((book) => book.genres.split(", ")))
-        );
+    fetchBooks()
+      .then(({ data, uniqueGenres }) => {
         setGenres(uniqueGenres);
         setRecommendations(data);
-
         setLoading(false);
-      } catch (error) {
-        console.log("Error fetching data:", error);
+      })
+      .catch((error) => {
+        console.log(error);
         setError("Failed to fetch recommendations.");
         setLoading(false);
-      }
-    };
-
-    fetchBooks();
+      });
   }, []);
-
-  useEffect(() => {
-    generateRecommendations();
-  }, [selectedGenre]);
 
   const shuffleBooks = (array) => {
     return array.sort(() => Math.random() - 0.5);
@@ -54,7 +56,9 @@ function Recommendations() {
   const generateRecommendations = () => {
     if (selectedGenre) {
       const filteredBooks = recommendations.filter((book) => {
-        const genresArray = book.genres.split(", ").map((genre) => genre.trim());
+        const genresArray = book.genres
+          .split(", ")
+          .map((genre) => genre.trim());
         return genresArray.includes(selectedGenre);
       });
       const randomRecommendations = shuffleBooks(filteredBooks).slice(0, 10);
