@@ -2,10 +2,10 @@ import React, { useContext } from "react";
 import { booksContext } from "../App";
 
 //creating function for book details( in list)
-function BookDetails({ books, onItemClick }) {
+function BookDetails({ books, onItemHover }) {
   let { books } = useContext(booksContext);
-  function handleClick(bookId) {
-    onItemClick(bookId);
+  function handleHover(bookId) {
+    onItemHover(bookId);
   }
 
   //adding useeffect incase usecontext fails
@@ -27,7 +27,7 @@ function BookDetails({ books, onItemClick }) {
                 <div class="card-body">
                 <ul>
                     {books.map((book) => (
-                      <li key={book.id} onClick={handleClick.bind(null, book.id)}>
+                      <li key={book.id} onMouseEnter={handleHover.bind(null, book.id)}>
                           <h2>{book.title}</h2>
                         <p>Author: {book.author}</p>
                         <p>Genre: {book.genre}</p>
