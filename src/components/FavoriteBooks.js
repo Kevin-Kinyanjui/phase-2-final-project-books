@@ -5,7 +5,7 @@ function FavoriteBooks() {
   let { favoriteBooks, setFavoriteBooks } = useContext(booksContext);
 
   function removeLiked(bookID) {
-    setFavoriteBooks(favoriteBooks.filter((b) => b.id != bookID));
+    setFavoriteBooks(favoriteBooks.filter((b) => b.id !== bookID));
   }
 
   return (
