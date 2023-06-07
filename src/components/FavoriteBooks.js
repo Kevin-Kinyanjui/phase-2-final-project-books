@@ -1,22 +1,26 @@
 import React, { useContext } from "react";
 import { booksContext } from "../App";
-import Book from "./Book";
 
 function FavoriteBooks() {
-  let { favoriteBooks } = useContext(booksContext);
+  let { favoriteBooks, setFavoriteBooks } = useContext(booksContext);
 
-  function removeLiked(book) {
-    console.log(book);
+  function removeLiked(bookID) {
+    setFavoriteBooks(favoriteBooks.filter((b) => b.id != bookID));
   }
 
   return (
     <div>
-      {favoriteBooks ? (
-        favoriteBooks.map((book) => (
-          <Book key={book.id} book={favoriteBooks} handleLike={removeLiked} />
-        ))
-      ) : (
+      {!favoriteBooks ? (
         <h1> "No favorites selected" </h1>
+      ) : (
+        favoriteBooks.map((book) => (
+          <div className="Book" key={book.id}>
+            <img src={book.image_url} alt="book" width={200} height={300} />
+            <div>{book.title}</div>
+            <div>{book.authors}</div>
+            <button onClick={() => removeLiked(book.id)}>Like</button>
+          </div>
+        ))
       )}
     </div>
   );
