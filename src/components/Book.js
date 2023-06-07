@@ -1,10 +1,11 @@
-import React, { useContext } from "react";
-import { booksContext } from "../App";
+import React from "react";
 
-function Book() {
-  let { books } = useContext(booksContext);
-  console.log(books);
-  return <div>Books</div>;
+function Book({ book }) {
+  return (
+    <div>
+      <div>{book.title}</div>
+    </div>
+  );
 }
 
 export default Book;

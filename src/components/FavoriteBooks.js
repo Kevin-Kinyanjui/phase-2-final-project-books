@@ -1,15 +1,12 @@
-import React, { useContext, useEffect, useState } from "react";
-import { booksContext } from "../App";
+import React, { useEffect, useState } from "react";
 
 function FavoriteBooks() {
-  const { favoritebooks, setFavoriteBooks } = useContext(booksContext);
+  const [favoritebooks, setFavoriteBooks] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch(
-      "https://my-json-server.typicode.com/Kevin-Kinyanjui/phase-2-final-project-books"
-    )
+    fetch("https://example-data.draftbit.com/books?_limit=150")
       .then((response) => response.json())
       .then((data) => {
         setFavoriteBooks(data);
