@@ -273,3 +273,23 @@
   font-size: 14px;
   color: #888888;
 }
+
+.homeStyle {
+  background-image: url("../public/janko-ferlic-sfL_QOnmy00-unsplash.jpg");
+  background-position: center;
+  background-size: cover;
+  color: #fff;
+  padding: 100px;
+  text-align: center;
+  height: 180px;
+}
+
+.homeStyle h1 {
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: 26px;
+  font-weight: bold;
+  color: #0d5063;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}

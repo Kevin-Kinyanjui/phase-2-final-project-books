@@ -43,6 +43,9 @@ function BooksList() {
 
   return (
     <>
+      <div className="homeStyle">
+        <h1>Unleash the Magic of Books!</h1>{" "}
+      </div>
       {books.map((book) => (
         <Book key={book.id} book={book} handleLike={handleLike} />
       ))}
