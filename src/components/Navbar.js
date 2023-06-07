@@ -118,8 +118,7 @@ function Navbar() {
         <Routes>
           <Route exact path="/" element={<BooksList />} />
           <Route path="favoritebooks" element={<FavoriteBooks />} />
-          {/* <Route path="activereads" element={<Active-reads />} />
-          <Route path="comments" element={<Comments />} /> */}
+    
         </Routes>
       </Router>
     </>
