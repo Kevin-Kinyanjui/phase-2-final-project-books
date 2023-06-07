@@ -1,49 +1,40 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { booksContext } from "../App";
 
-// const BooksList = ({ books, onBookOver }) => {
-//   let { books, setBooks } = useContext(booksContext);
-
-//   useEffect(() => {
-//     fetch("../db.json")
-//       .then((response) => {
-//         if (!response.ok) {
-//           throw new Error("Failed to fetch data");
-//         }
-//         return response.json();
-//       })
-//       .then((jsonData) => {
-//         setBooks(jsonData);
-//         setLoading(false);
-//       })
-//       .catch((error) => {
-//         setError(error);
-//         setLoading(false);
-//       });
-//   }, []);
-
-//   if (loading) {
-//     return <div>Loading...</div>;
-//   }
-
-//   if (error) {
-//     return <div>Error: {error.message}</div>;
-//   }
-
-// };
-
-//   return (
-//     <ul className="book-list">
-//       {books.map((book) => (
-//         <li key={book.id} onOver={() => onBookOver(book.id)}>
-//           {book.title}
-//         </li>
-//       ))}
-//     </ul>
-//   );
-
 function BooksList() {
-  // let { books, setBooks } = useContext(booksContext);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  let { books, setBooks } = useContext(booksContext);
+
+  useEffect(() => {
+    fetch(
+      "https://my-json-server.typicode.com/Kevin-Kinyanjui/phase-2-final-project-books"
+    )
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Failed to fetch data");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setBooks(data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        setError(error);
+        setLoading(false);
+      }); // eslint-disable-next-line
+  }, []);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
+
+  console.log(books);
   return <></>;
 }
 

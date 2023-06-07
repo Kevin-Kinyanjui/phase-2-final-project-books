@@ -7,7 +7,9 @@ function FavoriteBooks() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch("https://api.example.com/books")
+    fetch(
+      "https://my-json-server.typicode.com/Kevin-Kinyanjui/phase-2-final-project-books"
+    )
       .then((response) => response.json())
       .then((data) => {
         setFavoriteBooks(data);
