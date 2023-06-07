@@ -10,6 +10,9 @@ function FavoriteBooks() {
 
   return (
     <div>
+      <div className="homeStyle">
+        <h1>See books you have liked!</h1>{" "}
+      </div>
       {!favoriteBooks ? (
         <h1> "No favorites selected" </h1>
       ) : (

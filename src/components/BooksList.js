@@ -28,11 +28,26 @@ function BooksList() {
   }, []);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <>
+        {" "}
+        <div className="homeStyle">
+          <h1>Unleash the Magic of Books!</h1>{" "}
+        </div>
+        <div>Loading...</div>
+      </>
+    );
   }
 
   if (error) {
-    return <div>Error: {error.message}</div>;
+    return (
+      <>
+        <div className="homeStyle">
+          <h1>Unleash the Magic of Books!</h1>{" "}
+        </div>
+        <div>Error: {error.message}</div>
+      </>
+    );
   }
 
   function handleLike(book) {

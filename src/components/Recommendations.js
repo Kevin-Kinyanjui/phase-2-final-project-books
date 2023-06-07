@@ -6,7 +6,14 @@ function Recommendations() {
   let { books } = useContext(booksContext);
   console.log(books);
 
-  return <div>Recommendations</div>;
+  return (
+    <>
+      <div className="homeStyle">
+        <h1>Unleash the Magic of Books!</h1>{" "}
+      </div>
+      <div>Recommendations</div>
+    </>
+  );
 }
 
 export default Recommendations;

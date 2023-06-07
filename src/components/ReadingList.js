@@ -5,7 +5,14 @@ function ReadingList() {
   // const [readingList, setReadingList] = useState(null);
   let { books } = useContext(booksContext);
   console.log(books);
-  return <div>ReadingList</div>;
+  return (
+    <>
+      <div className="homeStyle">
+        <h1>Unleash the Magic of Books!</h1>{" "}
+      </div>
+      <div>ReadingList</div>
+    </>
+  );
 }
 
 export default ReadingList;
