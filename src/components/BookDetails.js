@@ -8,6 +8,15 @@ function BookDetails({ books, onItemClick }) {
     onItemClick(bookId);
   }
 
+  //adding useeffect incase usecontext fails
+  useEffect(() => {
+    fetch("url")
+      .then((response) => response.json())
+      .then((data) => {
+        setBots(data);
+      });
+  }, []);
+
 //projects a list of the title, description....etc
   return (
     <ul>
