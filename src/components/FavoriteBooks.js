@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Book from "./Book";
 
 function FavoriteBooks() {
   const [favoritebooks, setFavoriteBooks] = useState(null);
@@ -27,13 +28,7 @@ function FavoriteBooks() {
       ) : error ? (
         <p>{error}</p>
       ) : favoritebooks && favoritebooks.length > 0 ? (
-        favoritebooks.map((book) => (
-          <div key={book.id}>
-            <h3>{book.title}</h3>
-            <p>{book.author}</p>
-            {/* Display additional book details */}
-          </div>
-        ))
+        favoritebooks.map((book) => <Book key={book.id} book={book} />)
       ) : (
         <p>No favorite books yet.</p>
       )}
