@@ -37,6 +37,39 @@
   }
 }
 
+.Book {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* background-color: #36677a; */
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  display: inline-block;
+  margin-right: 20px;
+  margin-left: 20px;
+  
+}
+
+.Book-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.Book-image {
+  width: 100%;
+  height: 300px;
+  margin-bottom: 8px;
+  
+}
+
+.Book-author {
+  font-size: 16px;
+  color: #555555;
+  margin-bottom: 8px;
+}
+
 .navbar {
   width: 100%;
   height: 80px;
