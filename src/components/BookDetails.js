@@ -1,9 +1,9 @@
-import React, { useContext } from "react";
-import { booksContext } from "../App";
+import React from "react";
+// import { booksContext } from "../App";
 
 function BookDetails() {
-  let { books } = useContext(booksContext);
-  console.log(books);
+  // let { books } = useContext(booksContext);
+  // console.log(books);
   return <div>BookDetails</div>;
 }
 
