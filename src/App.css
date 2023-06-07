@@ -293,3 +293,23 @@
   text-transform: uppercase;
   letter-spacing: 2px;
 }
+
+.search-input {
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  font-size: 16px;
+  outline: none;
+  background-color: #f5f5f5;
+  color: #333333;
+  width: 300px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.search-input::placeholder {
+  color: #999999;
+}
+
+.search-input:focus {
+  box-shadow: 0 0 5px rgba(76, 110, 245, 0.5);
+}
