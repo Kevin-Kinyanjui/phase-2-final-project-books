@@ -43,7 +43,7 @@
   background-color: #0d5063;
   display: flex;
   align-items: center;
-  
+  justify-content: space-between;
 }
 
 .navbar .links {
@@ -52,7 +52,6 @@
   justify-content: center;
   align-items: center;
   display: flex;
-  flex: 1;
 }
 .links {
   display: flex;
@@ -70,7 +69,6 @@
   display: flex;
   justify-content: center;
   margin-right: 50px;
-  align-items: center;
 }
 
 .user {
@@ -93,4 +91,153 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
+}
+
+.loginBody {
+  background-image: url("../public/radu-marcusu-mbKApJz6RSU-unsplash.jpg");
+  background-size: cover;
+  background-position: center;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.loginH1 {
+  color: #fff;
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.loginh6 {
+  color: #fff;
+  font-size: 13px;
+  line-height: 1;
+  text-align: justify;
+  margin-bottom: 5px;
+  font-family: "Helvetica", sans-serif;
+  letter-spacing: 0.5px;
+  padding: 10px;
+}
+
+.button {
+  background-color: #4caf50;
+  border: none;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #45a049;
+}
+
+.comments {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.comments h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.comments ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.comments li {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.comments li p {
+  margin: 0;
+}
+
+.comments li span {
+  font-weight: bold;
+}
+
+.comments form {
+  margin-top: 20px;
+  border: 1px solid #ccc;
+  padding: 20px;
+}
+
+.comments form h3 {
+  font-size: 20px;
+  margin-top: 0;
+}
+
+.comments form div {
+  margin-bottom: 10px;
+}
+
+.comments form label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.comments form input[type="text"],
+.comments form input[type="email"],
+.comments form textarea {
+  width: 100%;
+  padding: 5px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.comments form button[type="submit"] {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.comments form button[type="submit"]:hover {
+  background-color: #0062cc;
+}
+
+.comment-card {
+  background-color: #eaf2f8;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.comment-card-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.comment-card-description {
+  color: #555555;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.comment-card-username {
+  font-size: 14px;
+  color: #888888;
 }

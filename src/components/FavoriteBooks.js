@@ -1,51 +1,13 @@
-// import React, { useContext, useEffect } from "react";
-// import { booksContext } from "../App";
-
-// function FavoriteBooks() {
-//   const { favoritebooks, setFavoriteBooks } = useContext(booksContext);
-
-//   useEffect(() => {
-    
-//     fetch("https://api.example.com/books")
-//       .then((response) => response.json())
-//       .then((data) => {
-        
-//         setFavoriteBooks(data);
-//       })
-//       .catch((error) => {
-//         console.log("Error fetching data:", error);
-//       });
-//   }, [setFavoriteBooks]);
-
-//   return (
-//     <div>
-//       <h1>Favorite Books</h1>
-//       {favoritebooks && favoritebooks.length > 0 ? (
-//         favoritebooks.map((book) => (
-//           <div key={book.id}>
-//             <h3>{book.title}</h3>
-//             <p>{book.author}</p>
-//             {/* Display other book details */}
-//           </div>
-//         ))
-//       ) : (
-//         <p>Loading favorite books...</p>
-//       )}
-//     </div>
-//   );
-// }
-
-// export default FavoriteBooks;
-import React, { useContext, useEffect, useState } from "react";
-import { booksContext } from "../App";
+import React, { useEffect, useState } from "react";
+import Book from "./Book";
 
 function FavoriteBooks() {
-  const { favoritebooks, setFavoriteBooks } = useContext(booksContext);
+  const [favoritebooks, setFavoriteBooks] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch("https://api.example.com/books")
+    fetch("https://example-data.draftbit.com/books?_limit=150")
       .then((response) => response.json())
       .then((data) => {
         setFavoriteBooks(data);
@@ -53,7 +15,7 @@ function FavoriteBooks() {
       })
       .catch((error) => {
         console.log("Error fetching data:", error);
-        setError("loading favorite books...");
+        setError("Failed to fetch favorite books.");
         setLoading(false);
       });
   }, [setFavoriteBooks]);
@@ -66,13 +28,7 @@ function FavoriteBooks() {
       ) : error ? (
         <p>{error}</p>
       ) : favoritebooks && favoritebooks.length > 0 ? (
-        favoritebooks.map((book) => (
-          <div key={book.id}>
-            <h3>{book.title}</h3>
-            <p>{book.author}</p>
-            {/* Display additional book details */}
-          </div>
-        ))
+        favoritebooks.map((book) => <Book key={book.id} book={book} />)
       ) : (
         <p>No favorite books yet.</p>
       )}
