@@ -5,7 +5,8 @@ import Book from "./Book";
 function BooksList() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  let { books, setBooks } = useContext(booksContext);
+  let { books, setBooks, favoriteBooks, setFavoriteBooks } =
+    useContext(booksContext);
 
   useEffect(() => {
     fetch("https://example-data.draftbit.com/books?_limit=150")
@@ -33,10 +34,17 @@ function BooksList() {
     return <div>Error: {error.message}</div>;
   }
 
+  function handleLike(book) {
+    if (!favoriteBooks.includes(book)) {
+      setFavoriteBooks((prevLikedBooks) => [...prevLikedBooks, book]);
+      console.log(favoriteBooks);
+    }
+  }
+
   return (
     <>
       {books.map((book) => (
-        <Book key={book.id} book={book} />
+        <Book key={book.id} book={book} handleLike={handleLike} />
       ))}
     </>
   );

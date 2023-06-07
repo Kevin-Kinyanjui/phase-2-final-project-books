@@ -1,10 +1,6 @@
 import React from "react";
 
-function Book({ book }) {
-  function handleLike(book) {
-    console.log(book);
-  }
-
+function Book({ book, handleLike }) {
   return (
     <div className="Book">
       <img src={book.image_url} alt="book" width={200} height={300} />
