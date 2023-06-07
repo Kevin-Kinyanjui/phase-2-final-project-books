@@ -33,7 +33,6 @@ function BooksList() {
     return <div>Error: {error.message}</div>;
   }
 
-  console.log(books);
   return (
     <>
       {books.map((book) => (
