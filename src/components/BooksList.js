@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { booksContext } from "../App";
 import Book from "./Book";
+import SearchBar from "./SearchBar";
 
 function BooksList() {
   const [loading, setLoading] = useState(true);
@@ -43,6 +44,11 @@ function BooksList() {
 
   return (
     <>
+      <div className="homeStyle">
+        <h1>Unleash the Magic of Books!</h1>{" "}
+      </div>
+      <br />
+      <SearchBar />
       {books.map((book) => (
         <Book key={book.id} book={book} handleLike={handleLike} />
       ))}
