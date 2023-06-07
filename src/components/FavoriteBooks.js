@@ -1,13 +1,13 @@
-import React, { useContext, useEffect, useState } from "react";
-import { booksContext } from "../App";
+import React, { useEffect, useState } from "react";
+import Book from "./Book";
 
 function FavoriteBooks() {
-  const { favoritebooks, setFavoriteBooks } = useContext(booksContext);
+  const [favoritebooks, setFavoriteBooks] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch("https://api.example.com/books")
+    fetch("https://example-data.draftbit.com/books?_limit=150")
       .then((response) => response.json())
       .then((data) => {
         setFavoriteBooks(data);
@@ -28,13 +28,7 @@ function FavoriteBooks() {
       ) : error ? (
         <p>{error}</p>
       ) : favoritebooks && favoritebooks.length > 0 ? (
-        favoritebooks.map((book) => (
-          <div key={book.id}>
-            <h3>{book.title}</h3>
-            <p>{book.author}</p>
-            {/* Display additional book details */}
-          </div>
-        ))
+        favoritebooks.map((book) => <Book key={book.id} book={book} />)
       ) : (
         <p>No favorite books yet.</p>
       )}
