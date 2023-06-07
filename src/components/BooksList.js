@@ -7,7 +7,9 @@ function BooksList() {
   let { books, setBooks } = useContext(booksContext);
 
   useEffect(() => {
-    fetch("https://example-data.draftbit.com/books?_limit=50")
+    fetch(
+      "https://my-json-server.typicode.com/Kevin-Kinyanjui/phase-2-final-project-books"
+    )
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to fetch data");
