@@ -17,10 +17,10 @@ function BookDetails({ books, onItemClick }) {
       });
   }, []);
 
-//projects a list of the title, description....etc
+//projects a list of the title, description....etc + css for card 
   return (
     <div class="container">
-        <div class="practice-areas">
+        <div class="book-areas">
           <div class="row">
             <div class="col-md-4">
               <div class="card h-100">    
@@ -33,7 +33,6 @@ function BookDetails({ books, onItemClick }) {
                         <p>Genre: {book.genre}</p>
                         <p>Description: {book.description}</p>
                         <p>Publication Date: {book.publicationDate}</p>
-
                       </li>
                     ))}
                 </ul>
