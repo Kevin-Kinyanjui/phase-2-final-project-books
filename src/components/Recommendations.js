@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 
+// fetching books data from api
 const fetchBooks = async () => {
   try {
     const response = await fetch(
@@ -21,11 +22,13 @@ const fetchBooks = async () => {
 };
 
 function Recommendations() {
+  // state variables
   const [recommendations, setRecommendations] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [selectedGenre, setSelectedGenre] = useState("");
   const [genres, setGenres] = useState([]);
+  const [showRecommendations, setShowRecommendations] = useState(false); // New state variable
 
   useEffect(() => {
     const fetchData = async () => {
@@ -51,10 +54,12 @@ function Recommendations() {
 
   const handleGenreChange = (event) => {
     setSelectedGenre(event.target.value);
+    setShowRecommendations(false); // Reset the showRecommendations state when genre changes
   };
 
   const handleSearch = () => {
     generateRecommendations();
+    setShowRecommendations(true); // Show recommendations when search is clicked
   };
 
   const generateRecommendations = () => {
@@ -68,8 +73,7 @@ function Recommendations() {
       const randomRecommendations = shuffleBooks(filteredBooks).slice(0, 5);
       setRecommendations(randomRecommendations);
     } else {
-      const randomRecommendations = shuffleBooks(recommendations).slice(0, 5);
-      setRecommendations(randomRecommendations);
+      setRecommendations([]); // Reset the recommendations when no genre is selected
     }
   };
 
@@ -89,13 +93,14 @@ function Recommendations() {
         onChange={handleGenreChange}
         className="border border-gray-300 rounded-md px-2 py-1"
       >
-        <option value="">All Genres</option>
+        <option value="">Select a Genre</option>
         {genres.map((genre) => (
           <option key={genre} value={genre}>
             {genre}
           </option>
         ))}
       </select>
+
       <button
         onClick={handleSearch}
         className="bg-blue-500 text-white px-4 py-2 rounded-md ml-2"
@@ -103,7 +108,7 @@ function Recommendations() {
         Search
       </button>
 
-      {recommendations.length > 0 ? (
+      {showRecommendations && recommendations.length > 0 ? (
         <ul>
           {recommendations.map((book) => (
             <li key={book.id}>
@@ -112,9 +117,9 @@ function Recommendations() {
             </li>
           ))}
         </ul>
-      ) : (
+      ) : showRecommendations ? (
         <p>No recommendations available.</p>
-      )}
+      ) : null}
     </div>
   );
 }
