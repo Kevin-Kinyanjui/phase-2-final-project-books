@@ -22,7 +22,7 @@ function Book({ book, handleLike }) {
       <button onClick={handleLikeClick} style={{ color: liked ? "red" : "black" }}>
         {liked ? "❤️" : "🤍"}
       </button>
-      <button onClick={handleReadClick} style={{color: read ? "black" : "green"}}>
+      <button onClick={handleReadClick} >
         {read ? "+" : "✔"}
       </button>
     </div>
