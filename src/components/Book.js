@@ -3,15 +3,14 @@ import { booksContext } from "../App";
 
 function Book({ book, handleLike }) {
   const [liked, setLiked] = useState(book.liked);
-  const { setSelectedBook } = useContext(booksContext);
+
 
   const handleLikeClick = () => {
     setLiked(true);
     handleLike(book);
   };
 
-  function handleSelectedBook(book) {
-    setSelectedBook(book);
+
   }
 
   return (
@@ -32,7 +31,7 @@ function Book({ book, handleLike }) {
         style={{ color: liked ? "red" : "black" }}
       >
         {liked ? "❤️" : "🤍"}
-      </div>
+
     </div>
   );
 }
