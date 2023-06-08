@@ -2,12 +2,13 @@ import React, { useContext, useEffect, useState } from "react";
 import { booksContext } from "../App";
 import Book from "./Book";
 import SearchBar from "./SearchBar";
+import BookDetails from "./BookDetails";
 
 function BooksList() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
-  let { books, setBooks, favoriteBooks, setFavoriteBooks } =
+  let { books, setBooks, favoriteBooks, setFavoriteBooks, selectedBook } =
     useContext(booksContext);
 
   useEffect(() => {
@@ -73,9 +74,13 @@ function BooksList() {
       </div>
       <br />
       <SearchBar onSearch={handleSearch} />
-      {searchedBooks.map((book) => (
-        <Book key={book.id} book={book} handleLike={handleLike} />
-      ))}
+      {selectedBook ? (
+        <BookDetails book={selectedBook} />
+      ) : (
+        searchedBooks.map((book) => (
+          <Book key={book.id} book={book} handleLike={handleLike} />
+        ))
+      )}
     </>
   );
 }

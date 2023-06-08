@@ -11,7 +11,7 @@ function SearchBar({ onSearch }) {
         <input
           type="text"
           onChange={handleSearch}
-          class="search-input"
+          className="search-input"
           placeholder="Search..."
         />
       </div>
