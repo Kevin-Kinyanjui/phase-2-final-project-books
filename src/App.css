@@ -327,50 +327,55 @@
 }
 
 .book-areas {
-  width: 700px;
+  width: auto;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-
 
 .card-body {
   padding: 20px;
 }
 
-h2 {
+.detailh2 {
   font-size: 24px;
   margin-bottom: 10px;
   color: blue;
 }
 
-h3 {
+.detailh3 {
   margin-bottom: 10px;
   color: rgb(62, 62, 168);
 }
 
-h4 {
+.detailh4 {
   color: #495e89;
   font-weight: bold;
   margin-bottom: 5px;
 }
 
-p {
+.detailp {
   margin-bottom: 5px;
   font-style: normal;
   text-align: left;
 }
 
-button {
+.detailsButton {
   padding: 10px 20px;
   background-color: #007bff;
   color: #fff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  margin-right: 10px;
+  margin-left: 10px;
 }
 
-button:hover {
+.detailsButton:hover {
   background-color: #0056b3;
 }
