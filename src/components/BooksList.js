@@ -55,7 +55,6 @@ function BooksList() {
   function handleLike(book) {
     if (!favoriteBooks.includes(book)) {
       setFavoriteBooks((prevLikedBooks) => [...prevLikedBooks, book]);
-      console.log(favoriteBooks);
     }
   }
 
@@ -72,8 +71,9 @@ function BooksList() {
       <div className="homeStyle">
         <h1>Unleash the Magic of Books!</h1>{" "}
       </div>
+
       <br />
-      <SearchBar onSearch={handleSearch} />
+      {!selectedBook ? <SearchBar onSearch={handleSearch} /> : null}
       {selectedBook ? (
         <BookDetails book={selectedBook} />
       ) : (

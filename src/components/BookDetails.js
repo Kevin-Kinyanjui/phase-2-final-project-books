@@ -2,14 +2,21 @@ import React, { useContext } from "react";
 import { booksContext } from "../App";
 
 function BookDetails({ book }) {
-  const { setSelectedBook } = useContext(booksContext);
+  const { setSelectedBook, reading, setReading } = useContext(booksContext);
 
   const handleClick = () => {
     setSelectedBook(null);
   };
 
+  function addToReading(book) {
+    if (!reading.includes(book)) {
+      setReading((prevReadBooks) => [...prevReadBooks, book]);
+    }
+  }
+
   return (
     <div class="container">
+
       <div class="book-areas">
         <div class="row">
           <div class="col-md-4">
@@ -23,11 +30,13 @@ function BookDetails({ book }) {
                   <p>Publication Date: {book.publicationDate}</p>
                 </ul>
                 <button onClick={() => handleClick()}> Back </button>
+      <button onClick={() => addToReading(book)}> Read </button>
               </div>
             </div>
           </div>
         </div>
       </div>
+
     </div>
   );
 }
