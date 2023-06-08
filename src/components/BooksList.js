@@ -68,11 +68,10 @@ function BooksList() {
 
   return (
     <>
-      {!selectedBook ? (
-        <div className="homeStyle">
-          <h1>Unleash the Magic of Books!</h1>{" "}
-        </div>
-      ) : null}
+      <div className="homeStyle">
+        <h1>Unleash the Magic of Books!</h1>{" "}
+      </div>
+
       <br />
       {!selectedBook ? <SearchBar onSearch={handleSearch} /> : null}
       {selectedBook ? (
