@@ -32,8 +32,8 @@ function Login() {
           vast realm of books with our revolutionary Library App.
         </h6>
         <h6>
-          Our advanced recommendation system will curate personalized book
-          suggestions tailored to your unique taste.
+          Our advanced recommendation system will curate personalized genre
+          based book suggestions tailored to your unique taste.
         </h6>
         <h6>
           Find your next favorite read with ease and broaden your literary

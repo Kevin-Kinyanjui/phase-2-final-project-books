@@ -1,9 +1,11 @@
 import React, { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { booksContext } from "../App";
 
 function Book({ book, handleLike }) {
   const [liked, setLiked] = useState(book.liked);
   const { setSelectedBook } = useContext(booksContext);
+  const navigate = useNavigate();
 
   const handleLikeClick = () => {
     setLiked(true);
@@ -12,6 +14,7 @@ function Book({ book, handleLike }) {
 
   function handleSelectedBook(book) {
     setSelectedBook(book);
+    navigate("/");
   }
 
   return (
