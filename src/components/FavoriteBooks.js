@@ -1,36 +1,33 @@
-import React, { useEffect, useState } from "react";
-import Book from "./Book";
+import React, { useContext } from "react";
+import { booksContext } from "../App";
 
 function FavoriteBooks() {
-  const [favoritebooks, setFavoriteBooks] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const { favoriteBooks, setFavoriteBooks } = useContext(booksContext);
 
-  useEffect(() => {
-    fetch("https://example-data.draftbit.com/books?_limit=150")
-      .then((response) => response.json())
-      .then((data) => {
-        setFavoriteBooks(data);
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.log("Error fetching data:", error);
-        setError("Failed to fetch favorite books.");
-        setLoading(false);
-      });
-  }, [setFavoriteBooks]);
+  function removeLiked(bookID) {
+    setFavoriteBooks(favoriteBooks.filter((b) => b.id !== bookID));
+  }
 
   return (
     <div>
-      <h1>Favorite Books</h1>
-      {loading ? (
-        <p>Loading favorite books...</p>
-      ) : error ? (
-        <p>{error}</p>
-      ) : favoritebooks && favoritebooks.length > 0 ? (
-        favoritebooks.map((book) => <Book key={book.id} book={book} />)
+      <div className="homeStyle">
+        <h1>See books you have liked!</h1>{" "}
+      </div>
+      {!favoriteBooks ? (
+        <h1>No favorites selected</h1>
       ) : (
-        <p>No favorite books yet.</p>
+        favoriteBooks.map((book) => (
+          <div className="Book" key={book.id}>
+            <img src={book.image_url} alt="book" width={200} height={300} />
+            <div>{book.title}</div>
+            <div>{book.authors}</div>
+            <div className="like-icon" onClick={() => removeLiked(book.id)}>
+              <span role="img" aria-label="Love">
+                ❤️
+              </span>
+            </div>
+          </div>
+        ))
       )}
     </div>
   );

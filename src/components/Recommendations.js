@@ -61,10 +61,10 @@ function Recommendations() {
           .map((genre) => genre.trim());
         return genresArray.includes(selectedGenre);
       });
-      const randomRecommendations = shuffleBooks(filteredBooks).slice(0, 10);
+      const randomRecommendations = shuffleBooks(filteredBooks).slice(0, 5);
       setRecommendations(randomRecommendations);
     } else {
-      const randomRecommendations = shuffleBooks(recommendations).slice(0, 10);
+      const randomRecommendations = shuffleBooks(recommendations).slice(0, 5);
       setRecommendations(randomRecommendations);
     }
   };
