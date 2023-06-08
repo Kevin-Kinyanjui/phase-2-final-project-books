@@ -28,18 +28,22 @@ function Recommendations() {
   const [genres, setGenres] = useState([]);
 
   useEffect(() => {
-    fetchBooks()
-      .then(({ data, uniqueGenres }) => {
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+        const { data, uniqueGenres } = await fetchBooks();
         setGenres(uniqueGenres);
         setRecommendations(data);
-        setLoading(false);
-      })
-      .catch((error) => {
+      } catch (error) {
         console.log(error);
         setError("Failed to fetch recommendations.");
+      } finally {
         setLoading(false);
-      });
-  }, []);
+      }
+    };
+
+    fetchData();
+  }, [selectedGenre]);
 
   const shuffleBooks = (array) => {
     return array.sort(() => Math.random() - 0.5);
@@ -61,10 +65,10 @@ function Recommendations() {
           .map((genre) => genre.trim());
         return genresArray.includes(selectedGenre);
       });
-      const randomRecommendations = shuffleBooks(filteredBooks).slice(0, 10);
+      const randomRecommendations = shuffleBooks(filteredBooks).slice(0, 5);
       setRecommendations(randomRecommendations);
     } else {
-      const randomRecommendations = shuffleBooks(recommendations).slice(0, 10);
+      const randomRecommendations = shuffleBooks(recommendations).slice(0, 5);
       setRecommendations(randomRecommendations);
     }
   };
