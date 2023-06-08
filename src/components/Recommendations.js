@@ -73,7 +73,12 @@ function Recommendations() {
       const randomRecommendations = shuffleBooks(filteredBooks).slice(0, 5);
       setRecommendations(randomRecommendations);
     } else {
+<<<<<<< HEAD
       setRecommendations([]); // Reset the recommendations when no genre is selected
+=======
+      const randomRecommendations = shuffleBooks(recommendations).slice(0, 5);
+      setRecommendations(randomRecommendations);
+>>>>>>> e0ce03eb57236f64ea0af2bbf08755696648843f
     }
   };
 
