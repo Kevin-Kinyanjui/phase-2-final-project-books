@@ -8,15 +8,6 @@ function BookDetails({ books, onItemHover }) {
     onItemHover(bookId);
   }
 
-  //adding useeffect incase usecontext fails
-  useEffect(() => {
-    fetch("url")
-      .then((response) => response.json())
-      .then((data) => {
-        setBots(data);
-      });
-  }, []);
-
 //projects a list of the title, description....etc + css for card 
   return (
     <div class="container">
