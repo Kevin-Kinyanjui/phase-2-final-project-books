@@ -1,11 +1,19 @@
 import React, { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { booksContext } from "../App";
 
 function ReadingList() {
-  let { reading, setReading } = useContext(booksContext);
+  let { reading, setReading, setSelectedBook } = useContext(booksContext);
 
   function removeReading(bookID) {
     setReading(reading.filter((b) => b.id !== bookID));
+  }
+
+  const navigate = useNavigate();
+
+  function handleSelected(book) {
+    setSelectedBook(book);
+    navigate("/");
   }
 
   return (
@@ -15,13 +23,20 @@ function ReadingList() {
       </div>
       <div>
         {reading.map((book) => (
-          <div className="Book" key={book.id}>
+          <div
+            className="Book"
+            key={book.id}
+            onClick={() => handleSelected(book)}
+          >
             <img src={book.image_url} alt="book" width={200} height={300} />
             <div>{book.title}</div>
             <div>{book.authors}</div>
             <button
               className="like-icon"
-              onClick={() => removeReading(book.id)}
+              onClick={(event) => {
+                event.stopPropagation();
+                removeReading(book.id);
+              }}
             >
               Remove
             </button>
