@@ -1,4 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
+import { booksContext } from "../App";
+import Book from "./Book";
 
 // fetching books data from api
 const fetchBooks = async () => {
@@ -29,6 +31,8 @@ function Recommendations() {
   const [selectedGenre, setSelectedGenre] = useState("");
   const [genres, setGenres] = useState([]);
   const [showRecommendations, setShowRecommendations] = useState(false); // New state variable
+
+  const { setSelectedBook } = useContext(booksContext); // Use the booksContext to access setSelectedBook
 
   useEffect(() => {
     const fetchData = async () => {
@@ -108,15 +112,17 @@ function Recommendations() {
         Search
       </button>
 
-      {showRecommendations && recommendations.length > 0 ? (
-        <ul>
+      {showRecommendations && recommendations.length > 0 ? ( // Render recommendations only when showRecommendations is true
+        <div>
           {recommendations.map((book) => (
-            <li key={book.id}>
-              <strong>Title:</strong> {book.title}, <strong>Author:</strong>{" "}
-              {book.authors}
-            </li>
+            <Book
+              key={book.id}
+              book={book}
+              handleLike={() => {}}
+              setSelectedBook={setSelectedBook} // Pass the setSelectedBook function from booksContext
+            />
           ))}
-        </ul>
+        </div>
       ) : showRecommendations ? (
         <p>No recommendations available.</p>
       ) : null}
