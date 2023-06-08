@@ -2,11 +2,13 @@ import React, { useContext, useEffect, useState } from "react";
 import { booksContext } from "../App";
 import Book from "./Book";
 import SearchBar from "./SearchBar";
+import BookDetails from "./BookDetails";
 
 function BooksList() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  let { books, setBooks, favoriteBooks, setFavoriteBooks } =
+  const [searchTerm, setSearchTerm] = useState("");
+  let { books, setBooks, favoriteBooks, setFavoriteBooks, selectedBook } =
     useContext(booksContext);
 
   useEffect(() => {
@@ -53,9 +55,16 @@ function BooksList() {
   function handleLike(book) {
     if (!favoriteBooks.includes(book)) {
       setFavoriteBooks((prevLikedBooks) => [...prevLikedBooks, book]);
-      console.log(favoriteBooks);
     }
   }
+
+  function handleSearch(searchText) {
+    setSearchTerm(searchText);
+  }
+
+  const searchedBooks = books.filter((book) =>
+    book.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
     <>
@@ -63,10 +72,14 @@ function BooksList() {
         <h1>Unleash the Magic of Books!</h1>{" "}
       </div>
       <br />
-      <SearchBar />
-      {books.map((book) => (
-        <Book key={book.id} book={book} handleLike={handleLike} />
-      ))}
+      <SearchBar onSearch={handleSearch} />
+      {selectedBook ? (
+        <BookDetails book={selectedBook} />
+      ) : (
+        searchedBooks.map((book) => (
+          <Book key={book.id} book={book} handleLike={handleLike} />
+        ))
+      )}
     </>
   );
 }

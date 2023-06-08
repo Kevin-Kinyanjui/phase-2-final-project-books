@@ -313,3 +313,11 @@
 .search-input:focus {
   box-shadow: 0 0 5px rgba(76, 110, 245, 0.5);
 }
+
+.like-icon {
+  cursor: pointer;
+}
+
+.like-icon:hover {
+  cursor: pointer;
+}
