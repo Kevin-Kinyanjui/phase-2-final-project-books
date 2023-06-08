@@ -1,5 +1,6 @@
-import React, { useContext } from "react";
-import { booksContext } from "../App";
+import React from "react";
+// import { booksContext } from "../App";
+
 
 //creating function for book details( in list)
 function BookDetails({ books, onItemHover }) {
@@ -36,6 +37,5 @@ function BookDetails({ books, onItemHover }) {
         </div>
       </div>
   );
-}
 
 export default BookDetails;

@@ -21,13 +21,15 @@ Welcome to BookBuzz, your ultimate destination for discovering captivating reads
 ## Links
 
 - Frontend: [link here](https://phase-2-group-3-project.netlify.app/)
-- Backend: [link here](https://www.example.com/backend)
+- Backend: [link here](https://my-json-server.typicode.com/Kevin-Kinyanjui/phase-2-final-project-books)
 
 ## Technology Stack
 
 - Frontend deployed with [Netlify](https://www.netlify.com/), ensuring high availability, scalability, and a fast browsing experience for users.
 
 - Backend powered by a RESTful JSON server, providing efficient data management, seamless integration, and reliable persistence of user actions.
+
+- Login and persisting comments uses [Firebase](https://firebase.google.com/)
 
 ## Contributors
 
