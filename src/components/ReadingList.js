@@ -1,8 +1,13 @@
 import React, { useContext } from "react";
 import { booksContext } from "../App";
 
-function ReadingList() {
-  // const [readingList, setReadingList] = useState(null);
+  const ReadingList = () => {
+  const { readingList, setreadingLists } = useContext(booksContext);
+
+  const removeRead = (bookID) => {
+    setFavoriteBooks(readingList.filter((b) => b.id !== bookID));
+  };
+
   let { books } = useContext(booksContext);
   console.log(books);
   return (
