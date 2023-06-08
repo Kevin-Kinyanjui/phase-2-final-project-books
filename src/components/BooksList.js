@@ -55,7 +55,6 @@ function BooksList() {
   function handleLike(book) {
     if (!favoriteBooks.includes(book)) {
       setFavoriteBooks((prevLikedBooks) => [...prevLikedBooks, book]);
-      console.log(favoriteBooks);
     }
   }
 

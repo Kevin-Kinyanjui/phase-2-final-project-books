@@ -10,6 +10,7 @@ function App() {
   const [books, setBooks] = useState(null);
   const [favoriteBooks, setFavoriteBooks] = useState([]);
   const [selectedBook, setSelectedBook] = useState(null);
+  const [reading, setReading] = useState([]);
 
   return (
     <booksContext.Provider
@@ -22,6 +23,8 @@ function App() {
         setFavoriteBooks,
         selectedBook,
         setSelectedBook,
+        reading,
+        setReading,
       }}
     >
       <div className="App">{user ? <Navbar /> : <Login />}</div>
