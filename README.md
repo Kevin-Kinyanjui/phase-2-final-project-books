@@ -10,7 +10,7 @@ Welcome to BookBuzz, your ultimate destination for discovering captivating reads
 
 - **Explore a Vast Library**: Immerse yourself in a vast collection of books spanning various genres, from thrilling mysteries and heartwarming romance to thought-provoking non-fiction and timeless classics.
 
-- **Personalized Recommendations**: Our advanced recommendation system analyzes your reading preferences and suggests tailored book recommendations, ensuring you always find your next favorite read.
+- **Recommendations**: Our advanced recommendation system analyzes your reading preferences and suggests tailored book recommendations based on genres, ensuring you always find your next favorite read.
 
 - **Save Favorites**: Like a book? Simply hit the "Like" button and save it to your personal collection. Your favorite books will be persisted to the backend, allowing you to revisit and access them at any time.
 
