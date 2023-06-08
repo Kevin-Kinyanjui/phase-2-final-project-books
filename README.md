@@ -10,7 +10,7 @@ Welcome to BookBuzz, your ultimate destination for discovering captivating reads
 
 - **Explore a Vast Library**: Immerse yourself in a vast collection of books spanning various genres, from thrilling mysteries and heartwarming romance to thought-provoking non-fiction and timeless classics.
 
-- **Personalized Recommendations**: Our advanced recommendation system analyzes your reading preferences and suggests tailored book recommendations, ensuring you always find your next favorite read.
+- **Recommendations**: Our advanced recommendation system analyzes your reading preferences and suggests tailored book recommendations based on genres, ensuring you always find your next favorite read.
 
 - **Save Favorites**: Like a book? Simply hit the "Like" button and save it to your personal collection. Your favorite books will be persisted to the backend, allowing you to revisit and access them at any time.
 
@@ -30,16 +30,66 @@ Welcome to BookBuzz, your ultimate destination for discovering captivating reads
 - Backend powered by a RESTful JSON server, providing efficient data management, seamless integration, and reliable persistence of user actions.
 
 - Login and persisting comments uses [Firebase](https://firebase.google.com/)
+- React Framework
+- JavaScript
+- HTML
+- CSS
+
+## Getting Started
+
+Before running the app, make sure you have [Node.js](https://nodejs.org) installed on your machine.
+
+To run this app locally, follow these steps:
+
+1. Clone this repository:
+
+   ```bash
+   git clone git@github.com:Kevin-Kinyanjui/phase-2-final-project-books.git
+
+   ```
+
+2. Navigate to the project directory:
+
+   ```bash
+   cd phase-2-final-project-books
+
+   ```
+
+3. Install the dependencies:
+
+   ```bash
+   npm install
+
+   ```
+
+4. Start the development server:
+
+   ```bash
+   npm start
+
+   ```
+
+5. Open your web browser and visit http://localhost:3000 to view the app.
 
 ## Contributors
 
 BookBuzz has been developed by a dedicated team of contributors who are passionate about literature and technology. We extend our gratitude to:
 
-- Stella
-- Damaris
-- Samuel
-- Jeff
-- Kevin
+- [Stella Nthenya](https://github.com/Stella-Nthenya)
+- [Damaris Njeri](https://github.com/NjeriMacharia98)
+- [Samuel](https://github.com/samuelkelvinmwangi)
+- [Jeff](https://github.com/Mbogz)
+- [Kevin Kinyanjui](https://github.com/Kevin-Kinyanjui)
+
+### Contributing
+
+If you'd like to contribute to this project, you can follow these steps:
+
+1. Fork this repository.
+2. Create a new branch for your feature/fix: git checkout -b feature/my-feature.
+3. Make your modifications and commit them: git commit -m "Add new feature".
+4. Push your branch to your forked repository: git push origin feature/my-feature.
+5. Open a pull request in this repository, comparing your branch with the main branch.
 
 ## License
 
