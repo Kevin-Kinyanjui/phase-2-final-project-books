@@ -32,6 +32,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -85,11 +86,13 @@
   align-items: center;
   display: flex;
 }
+
 .links {
   display: flex;
   flex: 1;
   justify-content: center;
 }
+
 .links a {
   color: white;
   padding-bottom: 2px;
@@ -116,6 +119,7 @@
   border-radius: 50%;
   margin-left: 10px;
 }
+
 .navbar {
   width: 100%;
   height: 80px;
@@ -320,4 +324,53 @@
 
 .like-icon:hover {
   cursor: pointer;
+}
+
+.book-areas {
+  width: 700px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+.card-body {
+  padding: 20px;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: blue;
+}
+
+h3 {
+  margin-bottom: 10px;
+  color: rgb(62, 62, 168);
+}
+
+h4 {
+  color: #495e89;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+p {
+  margin-bottom: 5px;
+  font-style: normal;
+  text-align: left;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
 }
