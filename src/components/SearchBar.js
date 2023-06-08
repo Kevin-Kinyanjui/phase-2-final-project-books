@@ -7,11 +7,11 @@ function SearchBar({ onSearch }) {
 
   return (
     <>
-      <div class="search-container">
+      <div className="search-container">
         <input
           type="text"
           onChange={handleSearch}
-          class="search-input"
+          className="search-input"
           placeholder="Search..."
         />
       </div>
