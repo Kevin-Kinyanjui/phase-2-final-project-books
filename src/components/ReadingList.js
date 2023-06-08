@@ -14,7 +14,7 @@ function ReadingList() {
         <h1>Books you are reading.</h1>{" "}
       </div>
       <div>
-        {reading((book) => (
+        {reading.map((book) => (
           <div className="Book" key={book.id}>
             <img src={book.image_url} alt="book" width={200} height={300} />
             <div>{book.title}</div>
