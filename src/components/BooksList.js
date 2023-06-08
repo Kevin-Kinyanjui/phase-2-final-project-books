@@ -6,6 +6,7 @@ import SearchBar from "./SearchBar";
 function BooksList() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [searchTerm, setSearchTerm] = useState("");
   let { books, setBooks, favoriteBooks, setFavoriteBooks } =
     useContext(booksContext);
 
@@ -57,14 +58,22 @@ function BooksList() {
     }
   }
 
+  function handleSearch(searchText) {
+    setSearchTerm(searchText);
+  }
+
+  const searchedBooks = books.filter((book) =>
+    book.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <>
       <div className="homeStyle">
         <h1>Unleash the Magic of Books!</h1>{" "}
       </div>
       <br />
-      <SearchBar />
-      {books.map((book) => (
+      <SearchBar onSearch={handleSearch} />
+      {searchedBooks.map((book) => (
         <Book key={book.id} book={book} handleLike={handleLike} />
       ))}
     </>
