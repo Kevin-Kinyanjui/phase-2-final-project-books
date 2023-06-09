@@ -57,6 +57,12 @@ function BooksList() {
       setFavoriteBooks((prevLikedBooks) => [...prevLikedBooks, book]);
     }
   }
+  function handleSearch(searchText) {
+    setSearchTerm(searchText);
+  }
+  const searchedBooks = books.filter((book) =>
+  book.title.toLowerCase().includes(searchTerm.toLowerCase())
+);
 
   function handleSearch(searchText) {
     setSearchTerm(searchText);
