@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { booksContext } from "../App";
 import Book from "./Book";
 import SearchBar from "./SearchBar";
+import BookDetails from "./BookDetails";
 
 function BooksList() {
   const [loading, setLoading] = useState(true);
@@ -41,6 +42,12 @@ function BooksList() {
       console.log(favoriteBooks);
     }
   }
+  function handleSearch(searchText) {
+    setSearchTerm(searchText);
+  }
+  const searchedBooks = books.filter((book) =>
+  book.title.toLowerCase().includes(searchTerm.toLowerCase())
+);
 
   return (
     <>
